@@ -1,13 +1,11 @@
 package org.programirame.models;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-/**
- * Created by igstojanovski on 6/18/2016.
- */
+@Entity
 public class Address {
     private long id;
+    private Customer customer;
 
     @Id
     @GeneratedValue
@@ -17,5 +15,15 @@ public class Address {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

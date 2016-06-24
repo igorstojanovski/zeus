@@ -1,13 +1,14 @@
 package org.programirame.models;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 public class Invoice {
     private long id;
     private String externalId;
     private Customer customer;
-
+    private BigDecimal amount;
 
     @Id
     @GeneratedValue
@@ -19,6 +20,7 @@ public class Invoice {
         this.id = id;
     }
 
+    @Column(nullable = false)
     public String getExternalId() {
         return externalId;
     }
@@ -28,12 +30,21 @@ public class Invoice {
     }
 
     @ManyToOne
-    @JoinColumn(name = "customer")
+    @JoinColumn(name = "customer_id", nullable = false)
     public Customer getCustomer() {
         return customer;
     }
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    @Column(nullable = false)
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
     }
 }
