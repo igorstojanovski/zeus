@@ -13,6 +13,14 @@ public class Customer {
     private List<Email> emails;
     private List<Address> addresses;
 
+    public Customer() {
+    }
+
+    public Customer(String externalId, String name) {
+        this.externalId = externalId;
+        this.name = name;
+    }
+
     @Id
     @GeneratedValue
     public long getId() {

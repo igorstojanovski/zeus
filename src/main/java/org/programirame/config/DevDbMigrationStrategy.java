@@ -11,8 +11,7 @@ public class DevDbMigrationStrategy implements FlywayMigrationStrategy {
     @Override
     public void migrate(Flyway flyway) {
         System.out.println("DEV Migration");
-//        flyway.setBaselineOnMigrate(true);
-//        flyway.repair();
-//        flyway.migrate();
+        flyway.setBaselineOnMigrate(true);
+        flyway.migrate();
     }
 }

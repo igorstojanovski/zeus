@@ -2,6 +2,7 @@ package org.programirame.models;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 public class Invoice {
@@ -9,6 +10,8 @@ public class Invoice {
     private String externalId;
     private Customer customer;
     private BigDecimal amount;
+    private Date invoiceDate;
+    private Date dueDate;
 
     @Id
     @GeneratedValue
@@ -46,5 +49,21 @@ public class Invoice {
 
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
+    }
+
+    public Date getInvoiceDate() {
+        return invoiceDate;
+    }
+
+    public void setInvoiceDate(Date invoiceDate) {
+        this.invoiceDate = invoiceDate;
+    }
+
+    public Date getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(Date dueDate) {
+        this.dueDate = dueDate;
     }
 }
