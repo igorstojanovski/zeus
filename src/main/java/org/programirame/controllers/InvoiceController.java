@@ -1,7 +1,7 @@
 package org.programirame.controllers;
 
 import org.programirame.models.Invoice;
-import org.programirame.repository.InvoiceRepository;
+import org.programirame.models.filters.invoice.FindInvoiceByMinMaxDate;
 import org.programirame.services.InvoiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,4 +27,11 @@ public class InvoiceController {
         return new ResponseEntity<>(insertedInvoice, HttpStatus.OK);
     }
 
+    @RequestMapping(path = "searchByLateDate", method = RequestMethod.POST)
+    public ResponseEntity<List<Invoice>> getInvoicesByLateDate(@RequestBody FindInvoiceByMinMaxDate filter) {
+
+        List<Invoice> invoices = invoiceService.getInvoicesByNumberOfDaysLate(filter.getMinDays(), filter.getMaxDays());
+
+        return new ResponseEntity<>(invoices, HttpStatus.OK);
+    }
 }

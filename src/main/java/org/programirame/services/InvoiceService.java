@@ -5,6 +5,8 @@ import org.programirame.repository.InvoiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class InvoiceService {
 
@@ -13,6 +15,10 @@ public class InvoiceService {
 
     public Invoice createInvoice(Invoice invoice) {
         return invoiceRepository.save(invoice);
+    }
+
+    public List<Invoice> getInvoicesByNumberOfDaysLate(double minDays, double maxDays) {
+        return invoiceRepository.findInvoiceByDueDateMinMax(minDays, maxDays);
     }
 
 }

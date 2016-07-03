@@ -1,10 +1,14 @@
 package org.programirame.models;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@invoiceId")
 public class Invoice {
     private long id;
     private String externalId;
@@ -12,6 +16,14 @@ public class Invoice {
     private BigDecimal amount;
     private Date invoiceDate;
     private Date dueDate;
+
+    public Invoice() {
+    }
+
+    public Invoice(BigDecimal amount, Date invoiceDate) {
+        this.amount = amount;
+        this.invoiceDate = invoiceDate;
+    }
 
     @Id
     @GeneratedValue
