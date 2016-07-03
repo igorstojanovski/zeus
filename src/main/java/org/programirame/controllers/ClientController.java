@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/clients")
 public class ClientController {
@@ -24,4 +26,12 @@ public class ClientController {
         return new ResponseEntity<>(newClient, HttpStatus.OK);
     }
 
+
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<List<Client>> getAllClients() {
+
+        List<Client> clients = clientService.getAllClients();
+
+        return new ResponseEntity<>(clients, HttpStatus.OK);
+    }
 }
