@@ -12,7 +12,7 @@ import java.util.Date;
 public class Invoice {
     private long id;
     private String externalId;
-    private Customer customer;
+    private Client client;
     private BigDecimal amount;
     private Date invoiceDate;
     private Date dueDate;
@@ -45,13 +45,13 @@ public class Invoice {
     }
 
     @ManyToOne
-    @JoinColumn(name = "customer_id", nullable = false)
-    public Customer getCustomer() {
-        return customer;
+    @JoinColumn(name = "client_id", nullable = false)
+    public Client getClient() {
+        return client;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     @Column(nullable = false)

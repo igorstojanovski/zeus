@@ -14,7 +14,7 @@ public interface InvoiceRepository extends CrudRepository<Invoice, Long> {
     @Query("SELECT i FROM Invoice i WHERE :minDays <= (CURRENT_DATE - i.dueDate) AND :maxDays > (CURRENT_DATE - i.dueDate)")
     List<Invoice> findInvoiceByDueDateMinMax(@Param("minDays") double minDays, @Param("maxDays") double maxDays);
 
-    List<Invoice> findInvoiceByCustomerId(long customerId);
+    List<Invoice> findInvoiceByClientId(long clientId);
 
 
 }

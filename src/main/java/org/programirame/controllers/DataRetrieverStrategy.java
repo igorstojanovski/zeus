@@ -1,6 +1,6 @@
 package org.programirame.controllers;
 
-import org.programirame.models.Customer;
+import org.programirame.models.Client;
 import org.programirame.models.Invoice;
 import org.springframework.stereotype.Component;
 
@@ -13,13 +13,13 @@ public enum DataRetrieverStrategy implements LateInvoiceRetriever {
 
     DAY_ONE {
         @Override
-        public List<Invoice> getLateInvoices(List<Integer> customerIds) {
+        public List<Invoice> getLateInvoices(List<Integer> clientIds) {
 
             Invoice invoice = new Invoice();
             invoice.setAmount(BigDecimal.valueOf(1000));
             invoice.setExternalId("InvEXT0001");
             invoice.setId(1);
-            invoice.setCustomer(new Customer());
+            invoice.setClient(new Client());
 
             ArrayList<Invoice> invoices = new ArrayList<>();
             invoices.add(invoice);
