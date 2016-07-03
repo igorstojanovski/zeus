@@ -1,1 +1,1 @@
-INSERT INTO customer (id, external_id, name) values (1, 'EXT001', 'Telekom')
+INSERT INTO client (id, external_id, name) values (1, 'EXT001', 'Telekom')

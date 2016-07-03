@@ -8,10 +8,10 @@ import java.util.List;
 
 @Service
 public class DataRetriever {
-    public List<Invoice> getSubjectInvoices(String notificationType, List<Integer> customerIds) {
+    public List<Invoice> getSubjectInvoices(String notificationType, List<Integer> clientIds) {
 
         DataRetrieverStrategy dataRetrieverStrategy = DataRetrieverStrategy.valueOf(notificationType);
 
-        return dataRetrieverStrategy.getLateInvoices(customerIds);
+        return dataRetrieverStrategy.getLateInvoices(clientIds);
     }
 }

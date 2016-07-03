@@ -7,7 +7,7 @@ public class Email {
     private long id;
     private String email;
     private EmailType type;
-    private Customer customer;
+    private Client client;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -38,12 +38,12 @@ public class Email {
     }
 
     @ManyToOne
-    @JoinColumn(name = "customer_id")
-    public Customer getCustomer() {
-        return customer;
+    @JoinColumn(name = "client_id")
+    public Client getClient() {
+        return client;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setClient(Client client) {
+        this.client = client;
     }
 }

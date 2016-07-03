@@ -7,8 +7,8 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@customerId")
-public class Customer {
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@clientId")
+public class Client {
 
     private String externalId;
     private String name;
@@ -17,10 +17,10 @@ public class Customer {
     private List<Email> emails;
     private List<Address> addresses;
 
-    public Customer() {
+    public Client() {
     }
 
-    public Customer(String externalId, String name) {
+    public Client(String externalId, String name) {
         this.externalId = externalId;
         this.name = name;
     }
@@ -52,7 +52,7 @@ public class Customer {
         this.name = name;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
     public List<Invoice> getInvoices() {
         return invoices;
     }
@@ -61,7 +61,7 @@ public class Customer {
         this.invoices = invoices;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
     public List<Email> getEmails() {
         return emails;
     }
@@ -70,7 +70,7 @@ public class Customer {
         this.emails = emails;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
     public List<Address> getAddresses() {
         return addresses;
     }

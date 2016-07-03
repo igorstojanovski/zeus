@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 public class Address {
     private long id;
-    private Customer customer;
+    private Client client;
 
     @Id
     @GeneratedValue
@@ -18,12 +18,12 @@ public class Address {
     }
 
     @ManyToOne
-    @JoinColumn(name = "customer_id")
-    public Customer getCustomer() {
-        return customer;
+    @JoinColumn(name = "client_id")
+    public Client getClient() {
+        return client;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setClient(Client client) {
+        this.client = client;
     }
 }

@@ -21,4 +21,7 @@ public class InvoiceService {
         return invoiceRepository.findInvoiceByDueDateMinMax(minDays, maxDays);
     }
 
+    public List<Invoice> getAllClientInvoices(long clientId) {
+        return invoiceRepository.findInvoiceByClientId(clientId);
+    }
 }

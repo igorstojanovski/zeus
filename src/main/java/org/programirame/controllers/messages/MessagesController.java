@@ -21,9 +21,9 @@ public class MessagesController {
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<List<Message>> getMesages(@RequestParam(value = "notification") String notificationType,
                                                     @RequestParam(value = "message") String messageType,
-                                                    @RequestBody List<Integer> customerIds) {
+                                                    @RequestBody List<Integer> clientIds) {
         System.out.println("Request Received");
-        List<Invoice> invoices = dataRetriever.getSubjectInvoices(notificationType, customerIds);
+        List<Invoice> invoices = dataRetriever.getSubjectInvoices(notificationType, clientIds);
         MessageCreator messageCreator = MessageCreatorStrategy.valueOf(messageType).getMessageCreator();
 
         List<Message> messages = messageCreator.createMessages(invoices);

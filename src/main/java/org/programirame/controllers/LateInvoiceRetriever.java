@@ -6,6 +6,6 @@ import java.util.List;
 
 interface LateInvoiceRetriever {
 
-    List<Invoice> getLateInvoices(List<Integer> customerIds);
+    List<Invoice> getLateInvoices(List<Integer> clientIds);
 
 }

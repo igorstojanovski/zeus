@@ -1,7 +1,7 @@
 package org.programirame.controllers;
 
-import org.programirame.models.Customer;
-import org.programirame.services.CustomerService;
+import org.programirame.models.Client;
+import org.programirame.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/customers")
-public class CustomerController {
+@RequestMapping("/clients")
+public class ClientController {
 
     @Autowired
-    CustomerService customerService;
+    ClientService clientService;
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer) {
-        Customer newCustomer = customerService.createCustomer(customer);
+    public ResponseEntity<Client> createClient(@RequestBody Client client) {
+        Client newClient = clientService.createClient(client);
 
-        return new ResponseEntity<>(newCustomer, HttpStatus.OK);
+        return new ResponseEntity<>(newClient, HttpStatus.OK);
     }
 
 }
