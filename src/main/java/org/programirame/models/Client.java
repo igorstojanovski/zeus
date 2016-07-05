@@ -3,8 +3,10 @@ package org.programirame.models;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@clientId")
@@ -13,9 +15,6 @@ public class Client {
     private String externalId;
     private String name;
     private long id;
-    private List<Invoice> invoices;
-    private List<Email> emails;
-    private List<Address> addresses;
 
     public Client() {
     }
@@ -52,30 +51,4 @@ public class Client {
         this.name = name;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
-    public List<Invoice> getInvoices() {
-        return invoices;
-    }
-
-    public void setInvoices(List<Invoice> invoices) {
-        this.invoices = invoices;
-    }
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
-    public List<Email> getEmails() {
-        return emails;
-    }
-
-    public void setEmails(List<Email> emails) {
-        this.emails = emails;
-    }
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
-    public List<Address> getAddresses() {
-        return addresses;
-    }
-
-    public void setAddresses(List<Address> addresses) {
-        this.addresses = addresses;
-    }
 }
