@@ -8,7 +8,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.programirame.ZeusApplication;
 import org.programirame.controllers.ClientController;
-import org.programirame.models.Client;
+import org.programirame.models.client.Client;
 import org.programirame.services.ClientService;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.http.HttpStatus;

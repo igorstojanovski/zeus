@@ -2,6 +2,7 @@ package org.programirame.models;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import org.programirame.models.client.Client;
 
 import javax.persistence.*;
 import java.math.BigDecimal;

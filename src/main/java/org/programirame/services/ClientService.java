@@ -1,6 +1,6 @@
 package org.programirame.services;
 
-import org.programirame.models.Client;
+import org.programirame.models.client.Client;
 import org.programirame.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

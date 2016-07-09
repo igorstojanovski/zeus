@@ -1,5 +1,7 @@
 package org.programirame.models;
 
+import org.programirame.models.client.Client;
+
 import javax.persistence.*;
 
 @Entity

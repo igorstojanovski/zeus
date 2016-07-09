@@ -1,12 +1,9 @@
-package org.programirame.models;
+package org.programirame.models.client;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@clientId")
@@ -14,7 +11,12 @@ public class Client {
 
     private String externalId;
     private String name;
+    private String surname;
+    private String taxNumber;
+    private String uid;
+
     private long id;
+    private ClientType type;
 
     public Client() {
     }
@@ -51,4 +53,37 @@ public class Client {
         this.name = name;
     }
 
+    @OneToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name="TYPE_ID")
+    public ClientType getType() {
+        return type;
+    }
+
+    public void setType(ClientType type) {
+        this.type = type;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getTaxNumber() {
+        return taxNumber;
+    }
+
+    public void setTaxNumber(String taxNumber) {
+        this.taxNumber = taxNumber;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
 }

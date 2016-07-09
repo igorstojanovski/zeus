@@ -1,6 +1,6 @@
 package org.programirame.controllers;
 
-import org.programirame.models.Client;
+import org.programirame.models.client.Client;
 import org.programirame.models.Invoice;
 import org.springframework.stereotype.Component;
 

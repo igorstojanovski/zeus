@@ -1,6 +1,6 @@
 package org.programirame.controllers;
 
-import org.programirame.models.Client;
+import org.programirame.models.client.Client;
 import org.programirame.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
