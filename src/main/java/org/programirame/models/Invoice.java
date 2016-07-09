@@ -44,7 +44,7 @@ public class Invoice {
         this.externalId = externalId;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
     public Client getClient() {
         return client;

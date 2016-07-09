@@ -5,10 +5,7 @@ import org.programirame.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,5 +30,13 @@ public class ClientController {
         List<Client> clients = clientService.getAllClients();
 
         return new ResponseEntity<>(clients, HttpStatus.OK);
+    }
+
+    @RequestMapping(path = "/{clientId}", method = RequestMethod.GET)
+    public ResponseEntity<Client> getClient(@PathVariable long clientId) {
+
+        Client client = clientService.getClient(clientId);
+
+        return new ResponseEntity<>(client, HttpStatus.OK);
     }
 }

@@ -30,4 +30,8 @@ public class ClientService {
         }
         return list;
     }
+
+    public Client getClient(long clientId) {
+        return clientRepository.findOne(clientId);
+    }
 }
