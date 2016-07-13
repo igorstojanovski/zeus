@@ -14,21 +14,16 @@ public class ClientService {
     @Autowired
     ClientRepository clientRepository;
 
+    @Autowired
+    UtilityService utilityService;
+
     public Client createClient(Client client) {
         return clientRepository.save(client);
     }
 
     public List<Client> getAllClients() {
 
-        return makeList(clientRepository.findAll());
-    }
-
-    public static <E> List<E> makeList(Iterable<E> iter) {
-        List<E> list = new ArrayList<>();
-        for (E item : iter) {
-            list.add(item);
-        }
-        return list;
+        return utilityService.makeList(clientRepository.findAll());
     }
 
     public Client getClient(long clientId) {

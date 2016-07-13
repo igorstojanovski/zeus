@@ -1,5 +1,6 @@
 package org.programirame.models.address;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.programirame.models.client.Client;
 
 import javax.persistence.*;
@@ -22,6 +23,7 @@ public class Address {
         this.id = id;
     }
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "client_id")
     public Client getClient() {
