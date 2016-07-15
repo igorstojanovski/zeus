@@ -15,11 +15,14 @@ import java.util.List;
 @RequestMapping("/clients")
 public class ClientController {
 
-    @Autowired
-    ClientService clientService;
+    private ClientService clientService;
+    private AddressService addressService;
 
     @Autowired
-    AddressService addressService;
+    public ClientController(ClientService clientService, AddressService addressService) {
+        this.clientService = clientService;
+        this.addressService = addressService;
+    }
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Client> createClient(@RequestBody Client client) {
@@ -49,6 +52,6 @@ public class ClientController {
     public ResponseEntity<List<Address>> getClientAddresses(@PathVariable long clientId) {
         List<Address> addresses = addressService.getClientAddresses(clientId);
 
-        return new ResponseEntity<List<Address>>(addresses, HttpStatus.OK);
+        return new ResponseEntity<>(addresses, HttpStatus.OK);
     }
 }

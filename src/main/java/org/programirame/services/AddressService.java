@@ -11,7 +11,7 @@ import java.util.List;
 public class AddressService {
 
     @Autowired
-    AddressRepository addressRepository;
+    private AddressRepository addressRepository;
 
     public List<Address> getClientAddresses(long clientId) {
         return addressRepository.findAddressByClientId(clientId);
