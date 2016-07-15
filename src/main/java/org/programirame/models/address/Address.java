@@ -4,13 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.programirame.models.client.Client;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class Address {
     private long id;
     private Client client;
-    private List<AddressType> addressType;
+    private AddressType addressType;
     private String address;
 
     @Id
@@ -34,13 +33,13 @@ public class Address {
         this.client = client;
     }
 
-    @ManyToMany
+    @OneToOne
     @JoinColumn(name = "type_id")
-    public List<AddressType> getAddressType() {
+    public AddressType getAddressType() {
         return addressType;
     }
 
-    public void setAddressType(List<AddressType> addressType) {
+    public void setAddressType(AddressType addressType) {
         this.addressType = addressType;
     }
 
