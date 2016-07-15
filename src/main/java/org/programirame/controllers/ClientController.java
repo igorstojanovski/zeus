@@ -1,6 +1,8 @@
 package org.programirame.controllers;
 
+import org.programirame.models.address.Address;
 import org.programirame.models.client.Client;
+import org.programirame.services.AddressService;
 import org.programirame.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +17,9 @@ public class ClientController {
 
     @Autowired
     ClientService clientService;
+
+    @Autowired
+    AddressService addressService;
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Client> createClient(@RequestBody Client client) {
@@ -38,5 +43,12 @@ public class ClientController {
         Client client = clientService.getClient(clientId);
 
         return new ResponseEntity<>(client, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/{clientId}/addresses", method = RequestMethod.GET)
+    public ResponseEntity<List<Address>> getClientAddresses(@PathVariable long clientId) {
+        List<Address> addresses = addressService.getClientAddresses(clientId);
+
+        return new ResponseEntity<List<Address>>(addresses, HttpStatus.OK);
     }
 }
