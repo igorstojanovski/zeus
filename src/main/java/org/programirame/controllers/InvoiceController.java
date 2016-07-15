@@ -14,8 +14,12 @@ import java.util.List;
 @RequestMapping("/invoices")
 public class InvoiceController {
 
+    private InvoiceService invoiceService;
+
     @Autowired
-    InvoiceService invoiceService;
+    public InvoiceController(InvoiceService invoiceService) {
+        this.invoiceService = invoiceService;
+    }
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Invoice> insertInvoices(@RequestBody Invoice invoice) {
