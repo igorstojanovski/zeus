@@ -32,10 +32,23 @@ public class ClientController {
     }
 
 
-    @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<Client>> getAllClients() {
+//    @RequestMapping(method = RequestMethod.GET)
+//    public ResponseEntity<List<Client>> getAllClients() {
+//
+//        List<Client> clients = clientService.getAllClients();
+//
+//        return new ResponseEntity<>(clients, HttpStatus.OK);
+//    }
 
-        List<Client> clients = clientService.getAllClients();
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<List<Client>> searchClients(@RequestParam(value = "query", required = false) String query) {
+
+        List<Client> clients;
+        if(query == null) {
+             clients = clientService.getAllClients();
+        } else {
+            clients = clientService.searchClients(query);
+        }
 
         return new ResponseEntity<>(clients, HttpStatus.OK);
     }

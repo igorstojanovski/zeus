@@ -66,6 +66,28 @@
 			<version>6.3.0</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+		<!--<dependency>-->
+			<!--<groupId>org.hibernate</groupId>-->
+			<!--<artifactId>hibernate-entitymanager</artifactId>-->
+			<!--<version>5.2.1.Final</version>-->
+		<!--</dependency>-->
+
+
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-search-orm -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-search-orm</artifactId>
+			<version>5.5.1.Final</version>
+		</dependency>
+
+
+		<!--&lt;!&ndash; Optional: to use JPA 2.1 &ndash;&gt;-->
+		<!--<dependency>-->
+			<!--<groupId>org.hibernate</groupId>-->
+			<!--<artifactId>hibernate-entitymanager</artifactId>-->
+		<!--</dependency>-->
+
 	</dependencies>
 	
 	<build>

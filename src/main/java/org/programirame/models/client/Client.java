@@ -2,17 +2,24 @@ package org.programirame.models.client;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
 
 import javax.persistence.*;
 
 @Entity
+@Indexed
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@clientId")
 public class Client {
 
     private String externalId;
+    @Field
     private String name;
+    @Field
     private String surname;
+    @Field
     private String taxNumber;
+    @Field
     private String uid;
 
     private long id;
